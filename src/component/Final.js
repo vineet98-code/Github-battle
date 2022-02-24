@@ -1,6 +1,7 @@
 import React from "react";
 import Loader from "./Loader";
-import Header from "./Header";
+
+
 class Final extends React.Component {
     constructor(props) {
         super(props);
@@ -18,7 +19,6 @@ class Final extends React.Component {
             player1Result = "Winner";
             player2Result = "Loser"
 
-
         } else if (player1.followers * 20 + player1.public_repos < player2.followers * 20 + player2.public_repos) {
 
             player1Result = "Loser";
@@ -30,13 +30,11 @@ class Final extends React.Component {
 
         }
 
-
         if (this.props.result) {
             return <Loader />
         } else {
             return (
-
-                <><Header />
+                <div>
                     <div className="final container">
                         <div className="repo">
                             <strong>{player1Result}</strong>
@@ -99,7 +97,7 @@ class Final extends React.Component {
 
                     </div>
                     <div className="reset"><button onClick={this.props.reset}>Reset</button></div>
-                </>
+                </div>
             )
         }
     }

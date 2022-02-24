@@ -1,6 +1,5 @@
 import React from "react";
 import Loader from "./Loader";
-import Header from "./Header";
 
 class GitHub extends React.Component {
     constructor(props) {
@@ -14,33 +13,20 @@ class GitHub extends React.Component {
         if (this.state.activeTag === "All") {
             fetch("https://api.github.com/search/repositories?q=stars:%3E1+language:All&sort=stars&order=desc&type=Repositories")
                 .then((data) => data.json())
-                .then((data) => {
-                    this.setState({
-                        data: data
-                    })
+                .then((data) => {this.setState({ data: data})
                 })
         }
     }
     handleClick = (e) => {
-        console.log(e.target.innerText);
-
         this.setState({
             activeTag: e.target.innerText,
             data: null,
-
         })
-
         fetch(`https://api.github.com/search/repositories?q=stars:%3E1+language:${e.target.innerText}&sort=stars&order=desc&type=Repositories`)
             .then((data) => data.json())
-            .then((data) => {
-
-
-                this.setState({
-                    data: data
-                })
-            })
+            .then((data) => {this.setState({ data: data })
+        })
     }
-
     render() {
         if (!this.state.data) {
             return <Loader />
@@ -48,7 +34,6 @@ class GitHub extends React.Component {
             const repos = this.state.data;
             return (
                 <div>
-                    <Header />
                     <div className="tags container">
 
                         <span onClick={(e) => this.handleClick(e)} className={this.state.activeTag === "All" ? "active" : ""}>All</span>
@@ -62,17 +47,19 @@ class GitHub extends React.Component {
                         {
                             repos.items.map((r, i) => {
                                 return (
-                                    <div key={r.id} className="repo">
+                                    <div key={r.id} className="repo flex">
                                         <strong>#{i + 1}</strong>
                                         <figure>
                                             <img src={r.owner.avatar_url} alt="" />
                                         </figure>
                                         <span ><a href={r.html_url} className="bold">{r.full_name.split('/').pop()}</a></span>
                                         <div className="elm">
+                                            
                                             <div className="margin">
                                                 <i class="fas fa-user user"></i>
                                                 <span><a href={r.html_url} className="bold-black">{r.full_name.split('/').pop()}</a></span>
                                             </div>
+
                                             <div className="margin">
                                                 <i class="fas fa-star star"></i>
                                                 <span>{r.watchers} stars</span>
@@ -93,7 +80,7 @@ class GitHub extends React.Component {
                             })
                         }
                     </div>
-            </div>
+                </div>
             )
         }
     }

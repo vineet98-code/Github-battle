@@ -121,6 +121,7 @@ h2 {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+
 }
 
 .repo {
@@ -128,8 +129,10 @@ h2 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 30%;
+  width: 27%;
   margin-top: 2rem;
+  margin-bottom: 2rem;
+
   background-color: gainsboro;
   padding: 1.1rem;
   box-shadow: 0.1rem 0.1rem 0.8rem 0.2rem rgb(105, 104, 104);
@@ -187,15 +190,13 @@ i {
   font-size: 1.4em;
   color: maroon;
   font-weight: bold;
+  text-transform:capitalize;
 }
 .bold-black {
   color: black;
   font-weight: bold;
+  text-transform:capitalize;
 }
-.fork {
-  margin-left: 0.3rem;
-}
-
 strong {
   font-size: 2rem;
 }
@@ -208,6 +209,7 @@ strong {
   font-weight: bold;
   font-size: 1.2rem;
   margin: 0 0.3rem;
+  cursor: pointer;
 }
 h2 {
   font-size: 1.5rem;
@@ -215,7 +217,6 @@ h2 {
 h4 {
   margin: 14% 40%;
 }
-
 body {
   margin: 0;
   padding: 0;
@@ -282,8 +283,7 @@ input{
     border: .1rem solid navy;
     border-radius: .2rem;
     font-size: 1.2rem;
-
-}
+  }
 input[type='submit']{
     margin-left: 1rem;
 }
@@ -315,7 +315,7 @@ input[type='submit']{
 
 .battle-user{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     background-color: rgb(204, 221, 218);
     height: 5rem;
@@ -323,6 +323,9 @@ input[type='submit']{
     margin-top: 4rem;
 }
 
+.flex{
+  flex-wrap: wrap;
+}
 .battle-user figure{
     width: 10%;
     
@@ -385,10 +388,12 @@ span{
     font-size: 1.7rem;
     letter-spacing: .2rem;
     text-transform: uppercase;
+    margin-bottom: 1rem;
 }
 .active1{
     background-color: black;
     color: whitesmoke;
+    cursor: pointer;
 }
 .battle-margin{
     margin-left: 1rem;

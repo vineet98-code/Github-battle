@@ -1,6 +1,5 @@
 import React from "react";
 import Final from "./Final";
-import Header from "./Header";
 
 
 class Battle extends React.Component {
@@ -68,11 +67,9 @@ class Battle extends React.Component {
     }
 
     render() {
-    // console.log(this.state.player, 'remaining players');
         if (!this.state.battle) {
             return (
                 <div>
-                    <Header />
                     <div className="container battle-ground">
                         <h1>Players</h1>
                         <div className="players">
@@ -84,12 +81,11 @@ class Battle extends React.Component {
                                         <input type="submit" placeholder="" value="SUBMIT" className={this.state.active1 ? "active1" : ""} />
                                     </form>
                                 </div>
+
                                 : <div className="battle-user">
 
                                     <figure>
                                         <img src={this.state.player[0].avatar_url} alt={this.state.player[0].login} />
-
-
                                     </figure>
 
                                     <a href={this.state.player[0].html_url} className="link">{this.state.player[0].login}</a>
